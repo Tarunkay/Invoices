@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice Management</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="light-mode">
+    <div class="logo">
+        <img src="./images/download.jfif" id="logo">
+    </div>
+    
+    <aside id="sidebar">
+        <div class="down">
+        <button id="mode-toggle">Toggle Mode</button>
+        <div id="profile">
+            <img src="./images/8.png" id="profile-pic">
+        </div>
+    </div>
+    </aside>
+    
+    <main>
+        <header>
+            <h1>Invoices</h1>
+            <button id="new-invoice-btn">New Invoice</button>
+        </header>
+
+        <div class="invoice-count">
+            <span>Total Invoices: <span id="invoice-count">0</span></span>
+        </div>
+        <div class="filter">
+            <label for="status-filter">Filter by status:</label>
+            <select id="status-filter">
+                <option value="all">All</option>
+                <option value="paid">Paid</option>
+                <option value="pending">Pending</option>
+                <option value="draft">Draft</option>
+            </select>
+        </div>
+        
+        <div id="invoice-list"></div>
+        
+        <div id="invoice-detail" style="display: none;">
+            <button id="back-to-list">Back to List</button>
+            <button id="edit-invoice-btn">Edit</button>
+            <div id="invoice-detail-content"></div>
+        </div>
+    </main>
+    
+    <div id="invoice-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="form-title">New Invoice</h2>
+            <form id="invoice-form">
+                <label for="biller-name">Customer Name:</label>
+                <input type="text" id="biller-name" name="customer-name" required>
+                
+                
+                <label for="biller-email">Customer Email:</label>
+                <input type="email" id="biller-email" name="customer-email" required>
+                
+                <label for="biller-city">Customer City:</label>
+                <input type="text" id="biller-city" name="biller-state" required>
+                <label for="biller-state">Customer State:</label>
+                <input type="text" id="biller-state" name="biller-state" required>
+                <label for="biller-pincode">Customer Pincode:</label>
+                <input type="text" id="biller-pincode" name="biller-pincode" required>
+                <label for="invoice-date">Invoice Date:</label>
+                <input type="date" id="invoice-date" name="invoice-date" required>
+                
+                <label for="invoice-status">Status:</label>
+                <select id="invoice-status" name="invoice-status" required>
+                    <option value="paid">Paid</option>
+                    <option value="pending">Pending</option>
+                    <option value="overdue">Overdue</option>
+                </select>
+                
+                <h3>Items</h3>
+                <div id="items-container"></div>
+                <button type="button" id="add-item-btn">Add Item</button>
+                <label for="total-amount">Total Amount:</label>
+                <input type="text" id="total-amount" name="total-amount" readonly>
+                <button type="submit">Save Invoice</button>
+            </form>
+        </div>
+    </div>
+    
+    <script src="./script/script.js"></script>
+</body>
+</html>
